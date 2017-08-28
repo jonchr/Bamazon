@@ -34,7 +34,8 @@ connection.query("SELECT * FROM products", function(err, res) {
 		type: "input",
 		message: "How many would you like to buy?",
 		name: "quantity"
-	}]).then(function(purchase){
+	}])
+	.then(function(purchase){
 		var item = items[parseInt(purchase.item)];
 		if(purchase.quantity > item.item_quantity) {
 			console.log("Out of stock lah");
@@ -48,6 +49,7 @@ connection.query("SELECT * FROM products", function(err, res) {
 				console.log("Table updated");
 			});
 		}
+
 		process.exit();
 	});
 
