@@ -23,12 +23,13 @@ connection.query("SELECT * FROM products", function(err, res) {
     if(err) throw err;
 
     //An array for storing the quantities of each item in the database, saving us the need for a second SELECT query
-    var items = [];
+    var items = {};
 
-    //Console logs each item in the table and adds its price and quantity to the array
+    //Console logs each item in the table and adds its price, quantity, and sales to the array of objects
     for (var key in res) {
       console.log(res[key].item_id + ": " + res[key].product_name + ", $" + res[key].price);  
-      items[parseInt(res[key].item_id)] = {item_price: res[key].price, item_quantity: res[key].stock_quantity}; 
+      items[parseInt(res[key].item_id)] = {item_price: res[key].price, 
+      	item_quantity: res[key].stock_quantity, item_revenue: res[key].product_sales}; 
     }
 
     //Asks the user which item they want and how many they want to buy
@@ -55,7 +56,9 @@ connection.query("SELECT * FROM products", function(err, res) {
 
 			//Updates the table with the new quantity for that item
 			var newQuantity = item.item_quantity - purchase.quantity;
-			var myQuery = "UPDATE products SET stock_quantity=" + newQuantity + " WHERE item_ID=" + parseInt(purchase.item);
+			var newRevenue = item.item_revenue + total;
+			var myQuery = "UPDATE products SET stock_quantity=" + newQuantity 
+				+ ", product_sales=" + newRevenue + " WHERE item_ID=" + parseInt(purchase.item);
 			connection.query(myQuery, function(err){
 				if (err) throw err;
 			});
