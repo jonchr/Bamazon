@@ -138,7 +138,7 @@ inquirer.prompt({
 			.then(function(response){
 				//Builds the values part of the query
 				var values = "(NULL, '" + response.product_name + "', '" + response.department_name 
-							+ "', " + response.price + ", " + response.stock_quantity + ")";
+							+ "', " + response.price + ", " + response.stock_quantity + ",0)";
 				//Runs the query to add the new row
 				connection.query("INSERT INTO products VALUES " + values, function(err) {
 					if(err) throw err;

@@ -37,16 +37,27 @@ inquirer.prompt({
 	switch (response.choice) {
 
 		// ===========================================================
+		//Allows a supervisor a view of all the departments and their financial performance
+		case "View Product Sales by Department":
 
-		case "View Product Sales By Department":
-
-
+			//Constructs query that with calculations and joins for the manager view
+			var myQuery = "SELECT D.*, IFNULL(ROUND(SUM(P.product_sales),2),0) AS total_sales, " 
+						+ "IFNULL(ROUND(SUM(P.product_sales) - D.overhead_costs,2),0) AS total_profit "
+						+ "FROM departments D LEFT JOIN products P ON D.department_name=P.department_name "
+						+ "GROUP BY D.department_ID";
+			//Queries and then logs the table
+			connection.query(myQuery, function(err, res) {
+				if (err) throw err;
+				console.table(res);
+				connection.end();
+			});
 
 			break;
 
 		// ===========================================================
 
-		case "Create New Department":
+		//Allows a supervisor to add a new department
+		case "Create New Department": /
 
 			// Prompts for department name and overhead costs
 			inquirer.prompt([{
@@ -71,8 +82,10 @@ inquirer.prompt({
 				connection.end();
 			});
 
+			connection.end();
+
 			break;
-			
+
 		// ===========================================================
 
 		default: //Is it worth even having a default when there's no way to access it?
