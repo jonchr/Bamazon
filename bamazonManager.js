@@ -5,7 +5,7 @@ var mysql = require("mysql"); //node MySQL module
 var inquirer = require("inquirer"); //node inquirer module 
 var consoleTable = require("console.table"); //node console.table module for console logging prettily
 
-var lowAmount = 500; //the threshold for items to appear on the low inventory report
+var lowAmount = 5; //the threshold for items to appear on the low inventory report
 
 //Sets up connection to MySQL table
 var connection = mysql.createConnection({

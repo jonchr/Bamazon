@@ -70,14 +70,14 @@ LOCK TABLES `products` WRITE;
 INSERT INTO `products` (`item_id`, `product_name`, `department_name`, `price`, `stock_quantity`, `product_sales`)
 VALUES
 	(1,'portable battery','electronics',19.99,200,399.8),
-	(2,'water bottle','sports/outdoors',9.99,1998,399.6),
+	(2,'water bottle','sports/outdoors',9.99,199,399.6),
 	(3,'sunglasses','sports/outdoors',15.27,500,1527),
 	(4,'bluetooth headphones','electronics',84.99,80,8499),
 	(5,'shaving cream','essentials',5.99,5000,1797),
 	(6,'USB-C 6 ft charging wire','electronics',13.99,1000,419.7),
 	(7,'car port USB charger','electronics',9.99,1000,999),
 	(8,'windshield wipers 21 in','car/auto',19.99,100,0),
-	(9,'tableau book','books/education',24.99,48,249.9),
+	(9,'tableau book','books/education',24.99,4,249.9),
 	(10,'foam earplugs','essentials',4,2000,200),
 	(11,'blanket','essentials',19.99,500,59.97),
 	(13,'cheerios','food',2.99,5,59.8),
