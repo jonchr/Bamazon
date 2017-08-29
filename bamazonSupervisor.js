@@ -57,7 +57,7 @@ inquirer.prompt({
 		// ===========================================================
 
 		//Allows a supervisor to add a new department
-		case "Create New Department": /
+		case "Create New Department":
 
 			// Prompts for department name and overhead costs
 			inquirer.prompt([{
