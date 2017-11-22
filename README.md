@@ -23,7 +23,7 @@ This repo can be cloned to your computer and accessed using the following comman
 		git clone https://github.com/jonchr/LIRIbot.git
 		cd LIRIbot
 
-Before running one of the application files, you should set up the required tables in MySQL. This can be doen with the command:
+Before running one of the application files, you should set up the required tables in MySQL. This can be done with the command:
 
 		node bamazonSchema.sql
 
