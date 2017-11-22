@@ -14,7 +14,7 @@ The supervisor file places the user in the role of a store supervisor above the 
 
 ### Development
 
-This application was developed as part of the GW Coding Bootcamp and was completed after the sixth week.
+This application was developed as part of the GW Coding Bootcamp and was completed after the sixth week. Each function makes use of the inquirer and mysql node modules to create the user interface and connect to the database. It also makes sure of a MySQL server, database, and table.
 
 ### Organization
 
